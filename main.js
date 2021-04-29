@@ -11,11 +11,11 @@ const gameField = document.querySelector(".images");
 const fieldRect = gameField.getBoundingClientRect();
 
 let remains = document.querySelector(".remains");
-let remainNum = 10;
+let remainNum = 15;
 
 function initGame(){
-  addItem('carrot', 10, 'images/carrot.png');
-  addItem('bug', 10, 'images/bug.png');
+  addItem('carrot', 15, 'images/carrot.png');
+  addItem('bug', 15, 'images/bug.png');
 }
 
 function randomNum(min, max){
@@ -24,19 +24,19 @@ function randomNum(min, max){
 
 function popUpLost(){
   popUp.setAttribute("id", "pop");
-  popUp.innerHTML = `<span>You Lost!</span>
+  popUp.innerHTML = `<span>You Lost!💩</span>
   <i class="fas fa-reply" onClick="window.location.reload()"></i>`
- }
- 
+}
+
 function popUpWin(){   
-   popUp.setAttribute("id", "pop");
-   popUp.innerHTML = `<span>You Win!</span>
-   <i class="fas fa-reply" onClick="window.location.reload()"></i>`
- }
+  popUp.setAttribute("id", "pop");
+  popUp.innerHTML = `<span>You Win!🎉</span>
+  <i class="fas fa-reply" onClick="window.location.reload()"></i>`
+}
 
 function popUpReplay(){
   popUp.setAttribute("id", "pop");
-  popUp.innerHTML = `<span>Replay?</span>
+  popUp.innerHTML = `<span>Replay?😀</span>
   <i class="fas fa-reply" onClick="window.location.reload()"></i>`
 }
 
