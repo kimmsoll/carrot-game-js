@@ -1,5 +1,7 @@
 # Carrot Game
 
+되나용!
+
 ### 스택
 
 ### HTML / CSS / Vanilla JS
