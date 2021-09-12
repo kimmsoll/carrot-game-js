@@ -1,5 +1,3 @@
-"use strict";
-
 export default class PopUp {
     constructor() {
         this.popUp = document.querySelector(".pop-up");
@@ -11,16 +9,16 @@ export default class PopUp {
         });
     }
 
-    setClickListener(onClick) {
+    setClickListener = (onClick) => {
         this.onClick = onClick;
     }
 
-    showWithText(text) {
+    showWithText = (text) => {
         this.popUpText.innerText = text;
         this.popUp.classList.remove("hidden");
     }
 
-    hide() {
+    hide = () => {
         this.popUp.classList.add("hidden");
     }
 }
