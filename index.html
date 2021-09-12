@@ -6,7 +6,7 @@
     <link href="styles.css" rel="stylesheet"/>
     <title>Document</title>
     <script src="https://kit.fontawesome.com/7bc825b445.js" crossorigin="anonymous"></script>
-    <script defer src="main.js"></script>
+    <script type="module" src="src/main.js" defer></script>
 </head>
 <body>
     <button class="game-btn">
@@ -17,7 +17,11 @@
         <span class="game-remains">10</span>
         <div class="game-field"></div>
     </div>
-    <div class="pop-up">
+    <div class="pop-up hidden">
+        <span class="pop-up-text"></span>
+        <button class="pop-up-btn">
+            <i class="fas fa-reply"></i>
+        </button>
     </div>
 </body>
 </html>

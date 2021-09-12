@@ -1,7 +1,12 @@
 "use strict"
 
-const body = document.querySelector("body");
-const popUp = body.querySelector(".pop-up");
+import PopUp from "./popUp.js";
+
+const gameFinishBanner = new PopUp();
+gameFinishBanner.setClickListener(()=>{
+  window.location.reload();
+})
+
 const gameBtn = document.querySelector(".game-btn");
 const timer = document.querySelector(".game-timer");
 const gameField = document.querySelector(".game-field");
@@ -12,30 +17,6 @@ let sec = 10;
 let remainNum = 10;
 let clock;
 let started = false;
-
-const popUpLost = () => {
-  popUp.setAttribute("id", "pop-up");
-  popUp.innerHTML = `<span>You Lost!💩</span>
-  <button class="pop-up-btn">
-  <i class="fas fa-reply" onClick="window.location.reload()"></i>
-  </button>`;
-}
-
-const popUpWin =() => {
-  popUp.setAttribute("id", "pop-up");
-  popUp.innerHTML = `<span>You Win!🎉</span>
-  <button class="pop-up-btn">
-  <i class="fas fa-reply" onClick="window.location.reload()"></i>
-  </button>`;
-}
-
-const popUpReplay = () => {
-  popUp.setAttribute("id", "pop-up");
-  popUp.innerHTML = `<span>Replay?😀</span>
-  <button class="pop-up-btn">
-  <i class="fas fa-reply" onClick="window.location.reload()"></i>
-  </button>`;
-}
 
 const randomNum = (min, max) => {
   return Math.random()*(max - min) + min;
@@ -75,19 +56,23 @@ const removeItems = (e) => {
     remains.innerHTML = `${remainNum}`;
     if(remainNum === 0 && sec > 0){
       stopGame();
-      popUpWin();
+      gameFinishBanner.showWithText("You Win! 🎉");
     }
   } else if(e.target.className === "bug"){
     stopGame();
-    popUpLost();
+    gameFinishBanner.showWithText("You Lost! 💩");
   }
 }
 
 const startGame = () => {
+  sec = 10;
+  remainNum = 10;
+  remains.innerHTML = remainNum;
+  timer.innerHTML = sec<10 ? `00:0${sec}` : `00:${sec}`;
   clock = setInterval(() => {
     if (sec <= 0) {
       stopGame();
-      popUpLost();
+      gameFinishBanner.showWithText("You Lost! 💩");
     } else {
       --sec;
       timer.innerHTML = sec<10 ? `00:0${sec}` : `00:${sec}`;
@@ -98,15 +83,11 @@ const startGame = () => {
 
 const stopGame = () => {
   if(sec > 0) {
-    popUpReplay();
+    gameFinishBanner.showWithText("Replay? 👀");
   }
   clearInterval(clock);
   gameBtn.innerHTML = `<i class="fas fa-play"></i>`;
   gameField.innerHTML = "";
-  sec = 10;
-  remainNum = 10;
-  remains.innerHTML = remainNum;
-  timer.innerHTML = sec<10 ? `00:0${sec}` : `00:${sec}`;
 }
 
 gameBtn.addEventListener("click", () => {

@@ -18,19 +18,6 @@ body {
   overflow: hidden;
 }
 
-button {
-  font-size: var(--text-large);
-  width: 80px;
-  height: 80px;
-  background-color: gold;
-  border-radius: var(--border-radius);
-  border-style: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
 .game-game {
   background-image: url(images/background.png);
   background-size: cover;
@@ -43,6 +30,16 @@ button {
 }
 
 .game-btn {
+  font-size: var(--text-large);
+  width: 80px;
+  height: 80px;
+  background-color: gold;
+  border-radius: var(--border-radius);
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   margin: 50px 0px 20px 0px;
 }
 
@@ -87,7 +84,7 @@ img:hover {
   cursor: pointer;
 }
 
-#pop-up {
+.pop-up {
   width: 400px;
   height: 250px;
   margin-top: 50px;
@@ -103,7 +100,24 @@ img:hover {
   z-index: 1;
 }
 
-#pop-up > span {
+.pop-up-text {
   margin-bottom: var(--text-small);
   font-size: var(--text-small);
+}
+
+.pop-up-btn {
+  font-size: var(--text-large);
+  width: 80px;
+  height: 80px;
+  background-color: gold;
+  border-radius: var(--border-radius);
+  border-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
